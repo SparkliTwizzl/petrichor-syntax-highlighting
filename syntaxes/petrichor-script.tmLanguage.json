@@ -2,31 +2,57 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "petrichor-script",
 	"patterns": [
-		{ "include": "#keywords" },
 		{ "include": "#comments" },
-		{ "include": "#strings" }
+		{ "include": "#constants" },
+		{ "include": "#keywords" },
+		{ "include": "#strings" },
+		{ "include": "#variables" }
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control.petrichor",
-					"match": "^\\s*[a-z]+(?:-[a-z0-9]+)*(?:-[a-z]+)?"
-				}
-			]
-		},
 		"comments": {
 			"patterns": [
 				{
 					"name": "comment.line.double-slash.petrichor",
 					"begin": "(?<!\\\\)//",
-					"end": "\n"
+					"end": "$\n?"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "constant.numeric.petrichor",
+					"match": "\b(-)?[0-9]+[0-9\\\\.]*\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.petrichor",
+					"match": "^\\s*[a-z]+(?:-[a-z0-9]+)*(?:-[a-z]+)?"
+				},
+				{
+					"name": "keyword.operator.wordlike",
+					"match": "(?<!\\\\),"
+				},
+				{
+					"name": "keyword.operator.wordlike",
+					"match": "(?<!\\\\)[\\{\\}:]"
+				},
+				{
+					"name": "keyword.operator.wordlike",
+					"match": "(?<![\\\\>])>>(?!>)"
 				}
 			]
 		},
 		"strings": {
 			"name": "string.quoted.double.petrichor",
-			"begin": "\"",
+			"begin": "(?<!\\\\)\"",
 			"end": "\"",
 			"patterns": [
 				{
@@ -34,6 +60,10 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"variables": {
+			"name": "variable.parameter.petrichor",
+			"match": "\\[[a-z-]+(?:-[a-z0-9]+)*(?:-[a-z]+)?\\]"
 		}
 	},
 	"scopeName": "source.petrichor"
