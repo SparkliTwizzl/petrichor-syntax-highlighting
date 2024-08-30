@@ -1,0 +1,40 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "petrichor-script",
+	"patterns": [
+		{ "include": "#keywords" },
+		{ "include": "#comments" },
+		{ "include": "#strings" }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.petrichor",
+					"match": "^\\s*[a-z]+(?:-[a-z0-9]+)*(?:-[a-z]+)?"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.petrichor",
+					"begin": "(?<!\\\\)//",
+					"end": "\n"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.petrichor",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.petrichor",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.petrichor"
+}

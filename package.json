@@ -1,0 +1,27 @@
+{
+  "name": "petrichor-syntax",
+  "displayName": "Petrichor Syntax",
+  "description": "Syntax highlighting for Petrichor Script and Petrichor Log files.",
+  "publisher": "SparkliTwizzl",
+  "version": "1.0.0",
+  "repository": "https://github.com/sparklitwizzl/vscode-syntax-petrichor",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "petrichor-script",
+      "aliases": ["Petrichor Script", "petrichor-script"],
+      "extensions": [".petrichor",".ptcr"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "petrichor-script",
+      "scopeName": "source.petrichor",
+      "path": "./syntaxes/petrichor-script.tmLanguage.json"
+    }]
+  }
+}
