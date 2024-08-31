@@ -69,7 +69,7 @@
 		"strings": {
 			"name": "string.quoted.double.petrichor",
 			"begin": "(?<!\\\\)\"",
-			"end": "\"",
+			"end": "(?<!\\\\)\"",
 			"patterns": [
 				{
 					"name": "constant.character.escape.petrichor",

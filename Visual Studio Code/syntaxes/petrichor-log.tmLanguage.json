@@ -43,7 +43,7 @@
         "strings": {
             "name": "string.quoted.double.petrichor-log",
             "begin": "(?<!\\\\)\"",
-            "end": "\"",
+            "end": "(?<!\\\\)\"",
             "patterns": [
                 {
                     "name": "constant.character.escape.petrichor-log",
