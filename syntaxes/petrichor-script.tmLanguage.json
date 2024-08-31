@@ -22,7 +22,7 @@
 		"constants": {
 			"patterns": [
 				{
-					"name": "constant.character.escape",
+					"name": "constant.character.escape.petricor",
 					"match": "\\\\."
 				},
 				{
@@ -34,11 +34,11 @@
 		"entities": {
 			"patterns": [
 				{
-					"name": "entity.name.function",
+					"name": "entity.name.function.petrichor",
 					"match": "(?<=^\\s*[a-z]+[a-z0-9\\-]*\\s*)(?<!\\\\)[\\{\\}:]"
 				},
 				{
-					"name": "entity.name.function",
+					"name": "entity.name.function.petrichor",
 					"match": "(?<![\\\\>])>>(?!>)"
 				},
 				{
