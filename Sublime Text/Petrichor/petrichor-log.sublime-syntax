@@ -1,0 +1,55 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: Petrichor Log
+file_extensions: [petrichorlog, ptcrlog]
+scope: source.petrichor-log
+version: 2
+language_version: 1.0.0
+
+contexts:
+  main:
+    # The main context is the initial starting point of our syntax.
+    # Include other contexts from here (or specify them directly).
+    - include: constants
+    - include: keywords
+    - include: line-numbers
+    - include: numbers
+    - include: strings
+    - include: timestamps
+
+  constants:
+    - match: '\\.'
+      scope: constant.character.escape.petrichor-log
+
+  keywords:
+    - match: '(DEBUG|ERROR|FINISH|IMPORTANT|INFO|START|WARNING)(?=\s*:)'
+      scope: keyword.control.petrichor-log
+
+  line-numbers:
+    - match: '\<LINE \d+\>'
+      scope: entity.name.variable.petrichor-log
+
+  numbers:
+    - match: '\b-?\d+(\.\d+)?(?<=\d)\b'
+      scope: constant.numeric.petrichor-log
+
+  strings:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character.
+    - match: '(?<!\\)"'
+      scope: punctuation.definition.string.begin.petrichor-log
+      push: inside_string
+
+  inside_string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.petrichor-log
+    - match: '\.'
+      scope: constant.character.escape.petrichor-log
+    - match: '(?<!\\)"'
+      scope: punctuation.definition.string.end.petrichor-log
+      pop: true
+
+  timestamps:
+    - match: '\[\d\d\d\d-\d\d-\d\d:\d\d:\d\d:\d\d\.\d+\]'
+      scope: entity.name.tag.petrichor-log
