@@ -27,7 +27,7 @@
 				},
 				{
 					"name": "constant.numeric.petrichor",
-					"match": "\\b-?[0-9]+(\\.[0-9]+)?\\b"
+					"match": "\\b-?\\d+(\\.\\d+)?(?<=\\d)\\b"
 				}
 			]
 		},
