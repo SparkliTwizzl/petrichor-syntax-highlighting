@@ -4,6 +4,7 @@
 	"patterns": [
 		{ "include": "#comments" },
 		{ "include": "#constants" },
+		{ "include": "#entities" },
 		{ "include": "#keywords" },
 		{ "include": "#strings" },
 		{ "include": "#variables" }
@@ -26,29 +27,44 @@
 				},
 				{
 					"name": "constant.numeric.petrichor",
-					"match": "\b(-)?[0-9]+[0-9\\\\.]*\b"
+					"match": "\\b-?[0-9]+(\\.[0-9]+)?\\b"
+				}
+			]
+		},
+		"entities": {
+			"patterns": [
+				{
+					"name": "entity.name.function",
+					"match": "(?<=^\\s*[a-z]+[a-z0-9\\-]*\\s*)(?<!\\\\)[\\{\\}:]"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "(?<![\\\\>])>>(?!>)"
+				},
+				{
+					"name": "entity.name.type.global.petrichor",
+					"match": "^\\s*(metadata|module\\-options)(?=\\s*:)"
+				},
+				{
+					"name": "entity.name.tag.global.petrichor",
+					"match": "^\\s*(minimum\\-version|command|module\\-options|auto\\-exit|log\\-file|log\\-mode|input\\-file|output\\-file)(?=\\s*:)"
+				},
+				{
+					"name": "entity.name.type.shortcutscripts.petrichor",
+					"match": "^\\s*(entry\\-list|shortcut\\-list)(?=\\s*:)"
+				},
+				{
+					"name": "entity.name.tag.shortcutscripts.petrichor",
+					"match": "^\\s*(default\\-icon|suspend\\-icon|reload\\-shortcut|suspend\\-shortcut|shortcut\\-template|shortcut|entry|id|name|last\\-name|pronoun|color|decoration|find|replace|text\\-case)(?=\\s*:)"
+				},
+				{
+					"name": "entity.name.tag.randomstrings.petrichor",
+					"match": "^\\s*(allowed\\-characters|string\\-count|string\\-length)(?=\\s*:)"
 				}
 			]
 		},
 		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control.petrichor",
-					"match": "^\\s*[a-z]+(?:-[a-z0-9]+)*(?:-[a-z]+)?"
-				},
-				{
-					"name": "keyword.operator.wordlike",
-					"match": "(?<!\\\\),"
-				},
-				{
-					"name": "keyword.operator.wordlike",
-					"match": "(?<!\\\\)[\\{\\}:]"
-				},
-				{
-					"name": "keyword.operator.wordlike",
-					"match": "(?<![\\\\>])>>(?!>)"
-				}
-			]
+			"patterns": [ ]
 		},
 		"strings": {
 			"name": "string.quoted.double.petrichor",
@@ -62,8 +78,12 @@
 			]
 		},
 		"variables": {
-			"name": "variable.parameter.petrichor",
-			"match": "\\[[a-z-]+(?:-[a-z0-9]+)*(?:-[a-z]+)?\\]"
+			"patterns": [
+				{
+					"name": "variable.parameter.petrichor",
+					"match": "\\[[a-z-]+(?:-[a-z0-9]+)*(?:-[a-z]+)?\\]"
+				}
+			]
 		}
 	},
 	"scopeName": "source.petrichor"
