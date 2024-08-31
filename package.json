@@ -12,16 +12,31 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "petrichor-script",
-      "aliases": ["Petrichor Script", "petrichor-script"],
-      "extensions": [".petrichor",".ptcr"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "petrichor-script",
-      "scopeName": "source.petrichor",
-      "path": "./syntaxes/petrichor-script.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "petrichor-script",
+        "aliases": [ "Petrichor Script", "petrichor-script" ],
+        "extensions": [ ".petrichor",".ptcr" ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "petrichor-log",
+        "aliases": [ "Petrichor Log", "petrichor-log" ],
+        "extensions": [ ".petrichorlog", ".ptcrlog" ],
+        "configuration": "./log-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "petrichor-script",
+        "scopeName": "source.petrichor",
+        "path": "./syntaxes/petrichor-script.tmLanguage.json"
+      },
+      {
+        "language": "petrichor-log",
+        "scopeName": "source.petrichor-log",
+        "path": "./syntaxes/petrichor-log.tmLanguage.json"
+      }
+    ]
   }
 }
