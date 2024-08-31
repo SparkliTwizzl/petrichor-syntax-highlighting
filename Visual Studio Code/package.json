@@ -5,6 +5,7 @@
   "publisher": "SparkliTwizzl",
   "version": "1.0.0",
   "repository": "https://github.com/sparklitwizzl/vscode-syntax-petrichor",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.92.0"
   },
