@@ -3,7 +3,7 @@
   "displayName": "Petrichor Syntax",
   "description": "Syntax highlighting for Petrichor Script and Petrichor Log files.",
   "publisher": "SparkliTwizzl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "https://github.com/sparklitwizzl/vscode-syntax-petrichor",
   "icon": "icon.png",
   "engines": {
